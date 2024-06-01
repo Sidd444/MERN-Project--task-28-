@@ -22,6 +22,9 @@ This is a simple Task Management application built with the MERN stack (MongoDB,
 -Get All Tasks: GET /tasks
 -Delete Task: DELETE /tasks/:id
 
+## Demo Video
+Watch the demo video [here](https://drive.google.com/file/d/1g9n9OGZIiC8HFssdVjETdcUr089KTRX6/view?usp=drivesdk).
+
 # Postman API Testing
 Below are screenshots from Postman demonstrating the API endpoints.
 
