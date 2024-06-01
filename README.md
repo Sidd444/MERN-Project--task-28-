@@ -25,13 +25,16 @@ This is a simple Task Management application built with the MERN stack (MongoDB,
 # Postman API Testing
 Below are screenshots from Postman demonstrating the API endpoints.
 
-Add Task
+![Add Task](./sscreenshot_postman/Screenshot(258).png)
 
-Update Task
+### Update Task
+![Update Task](./postman/Updatetask.png)
 
-Display All Tasks
+### Display All Tasks
+![Display All Tasks](./postman/Displayalltask.png)
 
-Delete Task
+### Delete Task
+![Delete Task](./postman/Deletetask.png)
 
 $ Demo Video
 Watch the demo video [here](https://drive.google.com/file/d/1g9n9OGZIiC8HFssdVjETdcUr089KTRX6/view?usp=drivesdk).
