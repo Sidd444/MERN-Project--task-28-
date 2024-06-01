@@ -1,0 +1,231 @@
+#add-new-task-button {
+  background-color: blue;
+  color: white;
+  height: 7vh;
+  width: 15vw;
+  border: none;
+  border-radius: 5px;
+}
+.navbar-brand > img {
+  height: 8vh;
+  width: 4vw;
+}
+body{
+  background-image: url("https://a-static.besthdwallpaper.com/abstract-firework-wallpaper-2048x768-16887_85.jpg");
+  background-repeat: no-repeat;
+}
+.navbar{
+  background-image: url("https://i1.wp.com/www.ggdeeofficial.com/wp-content/uploads/2016/08/ggdeeofficial-background.jpg?w=2000&ssl=1");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* TaskForm Css */
+form {
+  margin-left: 35%;
+  border: 1px solid rgb(131, 133, 124);
+  padding: 2%;
+  border-radius: 8px;
+  width: 30vw;
+  box-shadow: 0px 0px 10px 10px silver;
+  z-index: 300;
+  position: fixed;
+  background-color: white;
+}
+#form-cancel-button {
+  color: red;
+  background: none;
+  font-weight: bolder;
+}
+#add-task-button {
+  height: 5vh;
+  width: 40%;
+  background-color: rgb(38, 38, 235);
+  color: white;
+  margin-top: 3%;
+  border: none;
+  padding-bottom: 10%;
+}
+
+/* All Tasks display */
+
+#all-tasks-display {
+  display: flex;
+  justify-content: space-between;
+  gap:25px;
+  margin-top: 1%;
+  margin-left: 5%;
+}
+
+/* task style */
+.task-style {
+  border: none;
+  border-radius: 10px;
+  width: 80%;
+  height: 19vh;
+  background-color: rgb(252, 242, 242);
+  margin-left: 10%;
+  padding: 1%;
+  padding-bottom: 1%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* task update pop up window */
+
+.task-edit-window {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  z-index: 5;
+  position: absolute;
+  margin-left: 16%;
+}
+
+.taskList {
+  height: 72vh;
+  width: 30vw;
+  background-color: lightgray;
+  padding: 5;
+  overflow: scroll;
+  border-radius: 5px;
+}
+.update-existing-task {
+  margin-top: -1%;
+}
+
+.task-p {
+  margin-top: -2%;
+  margin-bottom: -2%;
+}
+.task-p-last {
+  margin-top: 8%;
+  color: blueviolet;
+  font-weight: bold;
+}
+
+.task-p-prio {
+  text-align: center;
+  height: 1%;
+  width: 17%;
+  border-radius: 10px;
+  font-size: smaller;
+  font-weight: bold;
+  color: white;
+}
+
+.task-description {
+  overflow: auto;
+  height: 35%;
+  margin-top: 1%;
+  line-height: 100%;
+}
+
+#mobile-display-column-buttons {
+  display: none;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+#mobile-display-column-buttons button {
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.bg-dark-subtlee {
+  border: none;
+  width: 17vw;
+  height: 7vh;
+  font-weight: bold;
+  border-radius: 10px;
+}
+/* for mobile devices */
+@media only screen and (max-width: 600px) {
+  .bg-dark-subtlee {
+    height:7vh;
+    width:40vw;
+  }
+  .bg-dark-subtlee>img{
+    width: 50px !important;
+  }
+  #all-tasks-display {
+    flex-direction: column;
+  }
+  .navbar-brand > img {
+    height: 7vh;
+    width: 10vw;
+  }
+  .taskList {
+    width: 120vw;
+    margin: 1%;
+    margin-left: 0%;
+  }
+  form{
+    width: 150vw;
+    height: 130vh;
+    margin-left: -1px;
+  }
+  #add-new-task-button {
+    width: 200px;
+    margin-left: 16%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  #search-and-add {
+    flex-direction: column;
+    gap: 1%;
+  }
+  #mobile-display-column-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 3px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+  .task-edit-window {
+    margin-left: 47%;
+  }
+  #search {
+    width: 100% !important;
+  }
+  #mobile-display-column-buttons button{
+    height:15vh;
+  }
+  body{
+    width:100vw;
+  }
+}
+#search {
+  height: 6vh;
+  width: 32vw;
+  background-color: lightgray;
+  border: none;
+  border-radius: 5px;
+}
+hr {
+  height: 5px;
+}
+.priority-and-update {
+  display: flex;
+  justify-content: space-between;
+}
+option {
+  border: none;
+  background-color: rgb(102, 68, 126);
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+select {
+  height: 95%;
+  font-size: smaller;
+  background-color: rgb(221, 37, 114);
+  border: none;
+  text-align: center;
+}
+.bg-dark-subtlee>img{
+  height:5vh;
+  width: 3vw;
+  margin-left: -11%;
+  border-radius: 6px;
+}
