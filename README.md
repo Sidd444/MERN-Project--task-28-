@@ -25,7 +25,7 @@ This is a simple Task Management application built with the MERN stack (MongoDB,
 # Postman API Testing
 Below are screenshots from Postman demonstrating the API endpoints.
 
-![Add Task](./ss-postman/Addtask).png)
+![Add Task](./ss-postman/Addtask.png)
 
 ### Update Task
 ![Update Task](./ss-postman/Updatetask.png)
