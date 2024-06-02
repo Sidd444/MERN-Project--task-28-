@@ -6,13 +6,28 @@ export default function EditTaskForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const response = await axios.put(`http://localhost:5000/tasks/${props.taskObj._id}`, props.taskObj);
-      console.log('Task saved:', response.data);
-      
-    } catch (error) {
-      console.error('Error saving task:', error);
-    }
+      try {
+        const { name, description, date, priority, status } = props.taskObj;
+        const response = await axios.get('http://localhost:5000/tasks', {
+          params: { name, description, date, priority, status }
+        });
+        const task = response.data[0];
+    
+        if (task) {
+          const putResponse = await axios.put(`http://localhost:5000/tasks/${task._id}`, props.taskObj);
+          
+          if (props.whichArrayToUpdate === "first array") props.searchAndUpdateFirstArray(task);
+          else if (props.whichArrayToUpdate === "second array") props.searchAndUpdateSecondArray(task);
+          else if (props.whichArrayToUpdate === "third array") props.searchAndUpdateThirdArray(task);
+          
+          props.toggleEditTaskForm();
+          console.log('Task updated:', putResponse.data);
+        } else {
+          console.log('No task found matching the criteria');
+        }
+      } catch (error) {
+        console.error('Error updating task:', error);
+      }
   };
 
   return (
@@ -79,14 +94,7 @@ export default function EditTaskForm(props) {
 
         <div>
           <button
-            id="add-task-button"
-            onClick={(event) => {
-              event.preventDefault(); 
-              if(props.whichArrayToUpdate==="first array") props.searchAndUpdateFirstArray(copyObj); 
-              else if(props.whichArrayToUpdate==="second array") props.searchAndUpdateSecondArray(copyObj);
-              else if(props.whichArrayToUpdate==="third array") props.searchAndUpdateThirdArray(copyObj);
-              props.toggleEditTaskForm();
-          }}
+            className="add-task-button"
           type="submit"
           >
             Update Task

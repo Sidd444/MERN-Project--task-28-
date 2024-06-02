@@ -6,13 +6,11 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
 
-
 const mongoURI = 'mongodb+srv://sid:JQLcavhqpodXDZOE@cluster0.eimiku8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
-
 
 const taskSchema = new mongoose.Schema({
   name: String,
@@ -27,7 +25,6 @@ const Task = mongoose.model('Task', taskSchema);
 app.use(cors());
 app.use(bodyParser.json());
 
-
 app.post('/tasks', async (req, res) => {
   try {
     const task = new Task(req.body);
@@ -38,16 +35,23 @@ app.post('/tasks', async (req, res) => {
   }
 });
 
-
 app.get('/tasks', async (req, res) => {
   try {
-    const tasks = await Task.find();
+    const { date, name, description, priority, status } = req.query;
+    const query = {};
+
+    if (date) query.date = date;
+    if (name) query.name = new RegExp(name, 'i'); 
+    if (description) query.description = new RegExp(description, 'i');
+    if (priority) query.priority = priority;
+    if (status) query.status = status;
+
+    const tasks = await Task.find(query);
     res.json(tasks);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
-
 
 app.put('/tasks/:id', async (req, res) => {
   try {
@@ -59,15 +63,15 @@ app.put('/tasks/:id', async (req, res) => {
   }
 });
 
-app.delete('/tasks/:id', async (req,res)=>{
-  try{
-    const task=await Task.findByIdAndDelete(req.params.id,req.body, {new:true});
+app.delete('/tasks/:id', async (req, res) => {
+  try {
+    const task = await Task.findByIdAndDelete(req.params.id);
     if (!task) return res.status(404).json({ error: 'Task not found' });
     res.json(task);
-  }catch (err) {
+  } catch (err) {
     res.status(400).json({ error: err.message });
   }
-})
+});
 
 app.put('/tasks/:id/status', async (req, res) => {
   try {
@@ -78,7 +82,6 @@ app.put('/tasks/:id/status', async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

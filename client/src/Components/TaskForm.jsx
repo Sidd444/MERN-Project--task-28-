@@ -85,7 +85,7 @@ export default function TaskForm(props) {
           </label>
 
           <div>
-            <button id="add-task-button" type="submit">
+            <button className="add-task-button" type="submit">
               + Add Task
             </button>
           </div>

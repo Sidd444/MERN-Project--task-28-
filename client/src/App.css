@@ -36,7 +36,7 @@ form {
   background: none;
   font-weight: bolder;
 }
-#add-task-button {
+.add-task-button {
   height: 5vh;
   width: 40%;
   background-color: rgb(38, 38, 235);

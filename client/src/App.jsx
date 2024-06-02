@@ -140,7 +140,7 @@ function App() {
      description:toBeUpdatedObj.description,
      date:toBeUpdatedObj.date,
      priority:toBeUpdatedObj.priority
-    });
+    }); console.log(taskObj);
     setWhichArrayToUpdate(updateArrayId);
   }
 
