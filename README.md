@@ -1,3 +1,7 @@
+# Netlify Deployed Link
+## [Click Here](https://mellow-daifuku-52bc64.netlify.app/)
+### Note:server folder is deployed on render
+
 # MERN Task Management App
 
 This is a simple Task Management application built with the MERN stack (MongoDB, Express, React, Node.js). The application allows users to create, read, update, and delete tasks.
