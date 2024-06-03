@@ -1,6 +1,9 @@
 # Netlify Deployed Link
 ## [Click Here](https://mellow-daifuku-52bc64.netlify.app/)
-### Note:server folder is deployed on render
+### Note: server folder is deployed on render
+
+# Demo Video for Postman API Testing and Preview of Frontend
+## [Click Here](https://drive.google.com/file/d/1-qkL3VmtRm5T-uCEfSDFMLGHxponqC3o/view?usp=drivesdk)
 
 # MERN Task Management App
 
@@ -26,9 +29,6 @@ This is a simple Task Management application built with the MERN stack (MongoDB,
 -Get All Tasks: GET /tasks
 -Delete Task: DELETE /tasks/:id
 
-## Demo Video
-Watch the demo video [here](https://drive.google.com/file/d/1g9n9OGZIiC8HFssdVjETdcUr089KTRX6/view?usp=drivesdk).
-
 # Postman API Testing
 Below are screenshots from Postman demonstrating the API endpoints.
 
@@ -43,5 +43,3 @@ Below are screenshots from Postman demonstrating the API endpoints.
 ### Delete Task
 ![Delete Task](./ss-postman/Deletetask.png)
 
-$ Demo Video
-Watch the demo video [here](https://drive.google.com/file/d/1g9n9OGZIiC8HFssdVjETdcUr089KTRX6/view?usp=drivesdk).
