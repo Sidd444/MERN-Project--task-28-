@@ -37,16 +37,7 @@ app.post('/tasks', async (req, res) => {
 
 app.get('/tasks', async (req, res) => {
   try {
-    const { date, name, description, priority, status } = req.query;
-    const query = {};
-
-    if (date) query.date = date;
-    if (name) query.name = new RegExp(name, 'i'); 
-    if (description) query.description = new RegExp(description, 'i');
-    if (priority) query.priority = priority;
-    if (status) query.status = status;
-
-    const tasks = await Task.find(query);
+    const tasks = await Task.find();
     res.json(tasks);
   } catch (err) {
     res.status(500).json({ error: err.message });

@@ -2,29 +2,19 @@ import React,{useState} from 'react'
 import axios from 'axios';
 
 export default function EditTaskForm(props) {
-  const [copyObj, setCopyObj] = useState(JSON.parse(JSON.stringify(props.taskObj)));
+  const [copyObj, setCopyObj] = useState(JSON.parse(JSON.stringify(props.tasObj)));
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-      try {
-        const { name, description, date, priority, status } = props.taskObj;
-        const response = await axios.get('http://localhost:5000/tasks', {
-          params: { name, description, date, priority, status }
-        });
-        const task = response.data[0];
-    
-        if (task) {
-          const putResponse = await axios.put(`http://localhost:5000/tasks/${task._id}`, props.taskObj);
+      try{
+          const putResponse = await axios.put(`http://localhost:5000/tasks/${copyObj._id}`, props.tasObj);
           
-          if (props.whichArrayToUpdate === "first array") props.searchAndUpdateFirstArray(task);
-          else if (props.whichArrayToUpdate === "second array") props.searchAndUpdateSecondArray(task);
-          else if (props.whichArrayToUpdate === "third array") props.searchAndUpdateThirdArray(task);
+          if (props.whichArrayToUpdate === "first array") props.searchAndUpdateFirstArray(copyObj);
+          else if (props.whichArrayToUpdate === "second array") props.searchAndUpdateSecondArray(copyObj);
+          else if (props.whichArrayToUpdate === "third array") props.searchAndUpdateThirdArray(copyObj);
           
           props.toggleEditTaskForm();
           console.log('Task updated:', putResponse.data);
-        } else {
-          console.log('No task found matching the criteria');
-        }
       } catch (error) {
         console.error('Error updating task:', error);
       }
@@ -49,8 +39,8 @@ export default function EditTaskForm(props) {
           type="text"
           placeholder="eg.- Design a Website"
           style={{ width: "70%" }}
-          onChange={(event) => (props.setTaskObj({...props.taskObj, name: event.target.value}))}
-          value={props.taskObj.name}
+          onChange={(event) => (props.setTasObj({...props.tasObj, name: event.target.value}))}
+          value={props.tasObj.name}
         />
 
         <p style={{ fontWeight: "bold" }}>Description</p>
@@ -59,8 +49,8 @@ export default function EditTaskForm(props) {
           type="text"
           placeholder="Description here"
           style={{ height: "30vh", width: "70%" }}
-          onChange={(event) => (props.setTaskObj({...props.taskObj, description:event.target.value}))}
-          value={props.taskObj.description}
+          onChange={(event) => (props.setTasObj({...props.tasObj, description:event.target.value}))}
+          value={props.tasObj.description}
         />
 
         <p style={{ fontWeight: "bold" }}>Set Deadline</p>
@@ -68,7 +58,7 @@ export default function EditTaskForm(props) {
           id="taskDateInput"
           type="date"
           style={{ width: "70%", fontWeight: "bolder" }}
-          onChange={(event) => (props.setTaskObj({...props.taskObj,date: event.target.value}))}
+          onChange={(event) => (props.setTasObj({...props.tasObj,date: event.target.value}))}
         />
 
         <p style={{ fontWeight: "bold" }}>Set Priority</p>
@@ -76,18 +66,18 @@ export default function EditTaskForm(props) {
           style={{ display: "flex", justifyContent: "center", gap: "7px" }}
         >
           <input id="radioButtonLow" type="radio" name="Priority" 
-           onChange={() => props.setTaskObj({...props.taskObj,priority: "low"})}
-           checked={props.taskObj.priority === "low"}
+           onChange={() => props.setTasObj({...props.tasObj,priority: "low"})}
+           checked={props.tasObj.priority === "low"}
           />
           low
           <input id="radioButtonMid" type="radio" name="Priority" 
-           onChange={() => props.setTaskObj({...props.taskObj,priority: "medium"})}
-           checked={props.taskObj.priority === "medium"}
+           onChange={() => props.setTasObj({...props.tasObj,priority: "medium"})}
+           checked={props.tasObj.priority === "medium"}
           />
           medium
           <input id="radioButtonHigh" type="radio" name="Priority" 
-           onChange={() => props.setTaskObj({...props.taskObj,priority: "high"})}
-           checked={props.taskObj.priority === "high"}
+           onChange={() => props.setTasObj({...props.tasObj,priority: "high"})}
+           checked={props.tasObj.priority === "high"}
           />
           high
         </label>

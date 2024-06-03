@@ -24,7 +24,13 @@ function App() {
     date:"",
     priority:""
   })
-
+  const[tasObj,setTasObj]=useState({
+    name:"",
+    description:"",
+    date:"",
+    priority:"",
+    _id:""
+  })
   
   //All tasks array 
   const[firstArr,setFirstArr]=useState([]);
@@ -135,12 +141,13 @@ function App() {
     setShowEditTaskForm(!showEditTaskForm);
   }
   function updateCurrentTask(toBeUpdatedObj,updateArrayId){
-    setTaskObj({...taskObj,
+    setTasObj({...tasObj,
      name:toBeUpdatedObj.name,
      description:toBeUpdatedObj.description,
      date:toBeUpdatedObj.date,
-     priority:toBeUpdatedObj.priority
-    }); console.log(taskObj);
+     priority:toBeUpdatedObj.priority,
+     _id:toBeUpdatedObj._id
+    }); console.log(tasObj);
     setWhichArrayToUpdate(updateArrayId);
   }
 
@@ -219,12 +226,12 @@ function App() {
 
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, [fetchTasks]);
 
   
   return (
     <>
-    {showEditTaskForm && <EditTaskForm  {...{taskObj,toggleEditTaskForm,searchAndUpdateFirstArray,setTaskObj,whichArrayToUpdate,
+    {showEditTaskForm && <EditTaskForm  {...{tasObj,toggleEditTaskForm,searchAndUpdateFirstArray,setTasObj,whichArrayToUpdate,
       searchAndUpdateSecondArray,searchAndUpdateThirdArray,updateCurrentTask}} />}
     {showTaskForm && <TaskForm {...{toggleTaskForm,taskObj,submitTask,setTaskObj}} />}
     <Navbar/>
