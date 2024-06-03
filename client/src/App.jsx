@@ -198,7 +198,8 @@ function App() {
 
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/tasks');
+      // const response = await axios.get('http://localhost:5000/tasks');
+      const response = await axios.get('https://mern-project-task-28-1.onrender.com/tasks');
       const yetToStartTasks = response.data.filter(task => task.status === 'yettostart');
       setFirstArr(yetToStartTasks);
     } catch (error) {
@@ -206,7 +207,8 @@ function App() {
     }
 
     try {
-      const response = await axios.get('http://localhost:5000/tasks');
+      //const response = await axios.get('http://localhost:5000/tasks');
+      const response = await axios.get('https://mern-project-task-28-1.onrender.com/tasks');
       const inProgressTasks = response.data.filter(task => task.status === 'inprogress');
       setSecondArr(inProgressTasks);
     } catch (error) {
@@ -214,7 +216,8 @@ function App() {
     }
 
     try {
-      const response = await axios.get('http://localhost:5000/tasks');
+      // const response = await axios.get('http://localhost:5000/tasks');
+      const response = await axios.get('https://mern-project-task-28-1.onrender.com/tasks');
       const completedTasks = response.data.filter(task => task.status === 'completed');
       setThirdArr(completedTasks);
     } catch (error) {

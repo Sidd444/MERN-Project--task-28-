@@ -20,7 +20,8 @@ function TaskItem({ task, fetchTasks, updateCurrentTask, toggleEditTaskForm, thi
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/tasks/${task._id}`);
+      // await axios.delete(`http://localhost:5000/tasks/${task._id}`);
+      await axios.delete(`https://mern-project-task-28-1.onrender.com/tasks/${task._id}`);
       setThirdArr(thirdArr.filter(t => t._id !== task._id)); // Remove the task from the state
     } catch (error) {
       console.error('Error deleting task:', error);
@@ -30,7 +31,8 @@ function TaskItem({ task, fetchTasks, updateCurrentTask, toggleEditTaskForm, thi
 
   const handleStatusChange = async (newStatus) => {
     try {
-      await axios.put(`http://localhost:5000/tasks/${task._id}/status`, { status: newStatus });
+      // await axios.put(`http://localhost:5000/tasks/${task._id}/status`, { status: newStatus });
+      await axios.put(`https://mern-project-task-28-1.onrender.com/tasks/${task._id}/status`, { status: newStatus });
       setThirdArr(thirdArr.map(t => t._id === task._id ? { ...t, status: newStatus } : t)); // Update the task's status in the state
       let obj={}
       thirdArr.forEach((e,i)=>{
