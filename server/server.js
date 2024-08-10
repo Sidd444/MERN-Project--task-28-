@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
 
-const mongoURI = 'mongodb+srv://siddharthabharalue&w=majority&appName=Cluster0';
+const mongoURI = 'mongodb+srv://siddharthabharaliassam:AXV9EneqMkHeSUGl@cluster0.y20ahlb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
