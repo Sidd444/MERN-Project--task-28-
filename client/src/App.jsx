@@ -229,7 +229,7 @@ function App() {
 
   useEffect(() => {
     fetchTasks();
-  }, [fetchTasks]);
+  }, []);
 
   
   return (
