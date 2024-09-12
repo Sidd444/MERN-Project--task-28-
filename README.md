@@ -1,5 +1,6 @@
-# Netlify Deployed Link
-## [Click Here](https://mellow-daifuku-52bc64.netlify.app/)
+# Task Manager
+## [Demo Video](https://drive.google.com/file/d/1B-liHKPS5_vsWn283O355apO55R91fbn/view?usp=sharing)
+## [Deployed Link](https://mellow-daifuku-52bc64.netlify.app/)
 ### Note: server folder is deployed on render
 
 # Demo Video for Postman API Testing and Preview of Frontend
